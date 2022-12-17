@@ -1,30 +1,17 @@
 #include <stdio.h>
-
 /**
- * main- prints the largest prime factor of a number
- * Return: Always 0
+ * main -> Entry point
+ * Return: Always success
  */
-
 int main(void)
 {
-	long input = 612852475143;
-	int iter;
+	unsigned long int i = 3, n = 612852475143;
 
-	while (iter++ < (input / 2))
+	for (; i < 12057; i += 2)
 	{
-		if ((input % iter) == 0)
-		{
-			input /= 2;
-			continue;
-		}
-
-		for (iter = 3; iter < (input / 2); iter += 2)
-		{
-			if ((input % iter) == 0)
-				input /= iter;
-		}
+		while (n % i == 0 && n != i)
+			n /= i;
 	}
-
-	printf("%ld\n", input);
+	printf("%lu\n", n);
 	return (0);
 }

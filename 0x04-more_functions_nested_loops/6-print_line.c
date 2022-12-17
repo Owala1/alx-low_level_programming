@@ -1,25 +1,17 @@
 #include "main.h"
-
 /**
- * print_line - prints underscores based on user input
- * @n: user input
+ * print_line -> a function that draws a straight line in the terminal.
+ * @n: An iput integer
+ * Return: Always Success
  */
-
 void print_line(int n)
 {
-	int iter;
+	int i = 0;
 
-	if (n <= 0)
+	if (n > 0)
 	{
-		_putchar(10);
-
-		return;
+		for (; i < n; i++)
+			_putchar('_');
 	}
-
-	for (iter = 0; iter < n; iter++)
-	{
-		_putchar('_');
-	}
-
-	_putchar(10);
+	_putchar('\n');
 }
