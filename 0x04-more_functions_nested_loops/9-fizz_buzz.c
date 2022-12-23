@@ -1,26 +1,31 @@
 #include "main.h"
 #include <stdio.h>
+
 /**
- * main -> Entry point
- * Return: Always success
+ * main - prints 1-100 with fizz and buzz occupying multiple of 3 and 5
+ * Return: Always 0
  */
+
 int main(void)
 {
-	int i = 1;
+	int iter;
 
-	for (; i < 100; i++)
+	for (iter = 1; iter <= 100; iter++)
 	{
-		if (i % 3 == 0 && i % 5 == 0)
-			printf("FizzBuzz ");
-		else if (i % 3 == 0)
-			printf("Fizz ");
-		else if (i % 5 == 0)
-			printf("Buzz ");
-		else
-			printf("%d ", i);
+		if ((iter % 3) == 0)
+			printf("Fizz");
+
+		if ((iter % 5) == 0)
+			printf("Buzz");
+
+		if (((iter % 3) != 0) && ((iter % 5) != 0))
+			printf("%d", iter);
+
+		if (iter < 100)
+			printf(" ");
 	}
-	printf("Buzz\n");
+
+	printf("\n");
 
 	return (0);
-
 }

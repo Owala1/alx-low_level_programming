@@ -1,35 +1,35 @@
-/**
- * cap_string - capitalizes all words of a string.
- * @s: string.
- * Return: string.
- */
-char *cap_string(char *s)
-{
-	int i;
+#include "main.h"
 
-	i = 0;
-	while (s[i] != '\0')
+/**
+* cap_string - entry level
+* @str: input from user
+* Return: Always returns the capitalized *char
+*/
+
+char *cap_string(char *str)
+{
+	int index = 0;
+
+	while (str[++index])
 	{
-		if ((s[i - 1] == ' ' || s[i - 1] == '\n'
-		|| s[i - 1] == '\t' || s[i - 1] == ','
-		|| s[i - 1] == ';' || s[i - 1] == '!'
-		|| s[i - 1] == '?' || s[i - 1] == '"'
-		|| s[i - 1] == '(' || s[i - 1] == ')'
-		|| s[i - 1] == '{' || s[i - 1] == '}'
-		|| s[i - 1] == '.')
-		&& (s[i] >= 'a' && s[i] <= 'z'))
-		{
-			s[i] = s[i] - 32;
-		}
-		else if ((s[0] >= 97 && s[0] <= 122))
-		{
-			s[0] = s[0] - 32;
-		}
-		else
-		{
-			s[i] = s[i];
-		}
-		i++;
+		while (!(str[index] >= 'a' && str[index] <= 'z'))
+			index++;
+
+		if (str[index - 1] == ' ' ||
+			str[index - 1] == '\t' ||
+			str[index - 1] == '\n' ||
+			str[index - 1] == ',' ||
+			str[index - 1] == ';' ||
+			str[index - 1] == '.' ||
+			str[index - 1] == '!' ||
+			str[index - 1] == '?' ||
+			str[index - 1] == '"' ||
+			str[index - 1] == '(' ||
+			str[index - 1] == ')' ||
+			str[index - 1] == '{' ||
+			str[index - 1] == '}')
+			str[index] -= 32;
 	}
-	return (s);
+
+	return (str);
 }
