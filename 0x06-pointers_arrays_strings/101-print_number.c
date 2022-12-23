@@ -1,8 +1,7 @@
 #include "main.h"
-
 /**
- * print_number - print an integer
- * @n: an exponent
+ * print_number - entry level
+ * @n: input from user
  */
 void print_number(int n)
 {
@@ -10,11 +9,12 @@ void print_number(int n)
 
 	if (n < 0)
 	{
-		_putchar(' ');
+		_putchar('-');
 		num = -num;
 	}
-	if ((num / 10) > 0)
+
+	if (num / 10)
 		print_number(num / 10);
 
-	_putchar((num % 10) + '0');
+	_putchar(num % 10 + '0');
 }
