@@ -1,27 +1,25 @@
 #include "main.h"
-#include <stdio.h>
-
 /**
- * reverse_array - entry level.
- * @a: input from user
- * @n: input from user
+ * reverse_array - reverses the content of an array of integers.
+ * @a: an array of integers
+ * @n: the number of elements to swap
+ *
+ * Return: nothing.
  */
 
 void reverse_array(int *a, int n)
 {
-	int i;
-	int limit = n;
+	int x, y, z;
 
-	i = 0;
-	n--;
+	x = 0;
+	y = n - 1;
 
-	while (i < (limit / 2))
+	while (x < y)
 	{
-		int temp = a[n];
-
-		a[n] = a[i];
-		a[i] = temp;
-		i++;
-		n--;
+		z = a[y];
+		a[y] = a[x];
+		a[x] = z;
+		y--;
+		x++;
 	}
 }

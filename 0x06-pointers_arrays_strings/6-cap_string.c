@@ -1,35 +1,36 @@
 #include "main.h"
 
 /**
-* cap_string - entry level
-* @str: input from user
-* Return: Always returns the capitalized *char
-*/
+ * cap_string - function that capitalizes all words of a string.
+ * @s: Pointer to Char
+ * Return: char.
+ */
 
-char *cap_string(char *str)
+char *cap_string(char *s)
 {
-	int index = 0;
+	int x = 0;
 
-	while (str[++index])
+	while (s[x] != '\0')
 	{
-		while (!(str[index] >= 'a' && str[index] <= 'z'))
-			index++;
-
-		if (str[index - 1] == ' ' ||
-			str[index - 1] == '\t' ||
-			str[index - 1] == '\n' ||
-			str[index - 1] == ',' ||
-			str[index - 1] == ';' ||
-			str[index - 1] == '.' ||
-			str[index - 1] == '!' ||
-			str[index - 1] == '?' ||
-			str[index - 1] == '"' ||
-			str[index - 1] == '(' ||
-			str[index - 1] == ')' ||
-			str[index - 1] == '{' ||
-			str[index - 1] == '}')
-			str[index] -= 32;
+		if (x == 0 && (s[x] >= 97 && s[x] <= 122))
+		{
+			s[x] = s[x] - 32;
+			x++;
+		}
+		if (s[x] == ' ' || s[x] == '\n' || s[x] == '\t'
+		    || s[x] == ',' || s[x] == ';' || s[x] == '!'
+		    || s[x] == '?' || s[x] == '"' || s[x] == '('
+		    || s[x] == ')' || s[x] == '{' || s[x] == '}'
+		    || s[x] == '.')
+		{
+			x++;
+			if (s[x] >= 97 && s[x] <= 122)
+			{
+				s[x] = s[x] - 32;
+			}
+		}
+		else
+			x++;
 	}
-
-	return (str);
+	return (s);
 }

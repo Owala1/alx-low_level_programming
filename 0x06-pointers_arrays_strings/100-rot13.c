@@ -1,35 +1,32 @@
 #include "main.h"
 
 /**
- * rot13 - entry level
- * @str: input from user
- *
- * Return: Always returns char *
+ * rot13 - encodes a string using rot13.
+ * @s: Pointer to Char
+ * Return: char.
  */
 
-char *rot13(char *str)
+char *rot13(char *s)
 {
-	int i, j;
+	int x = 0;
+	int y = 0;
 
-	char letters[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char rotated[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	char *s1 = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz";
+	char *s2 = "NnOoPpQqRrSsTtUuVvWwXxYyZzAaBbCcDdEeFfGgHhIiJjKkLlMm";
 
-	i = 0;
-
-	while (str[i] != '\0')
+	while (s[x] != '\0')
 	{
-		j = 0;
-		while (letters[j] != '\0')
+		while (s1[y] != '\0')
 		{
-			if (str[i] == letters[j])
+			if (s[x] == s1[y])
 			{
-				str[i] = rotated[j];
+				s[x] = s2[y];
 				break;
 			}
-			j++;
+			y++;
 		}
-		i++;
+		y = 0;
+		x++;
 	}
-
-	return (str);
+	return (s);
 }

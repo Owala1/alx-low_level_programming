@@ -1,25 +1,27 @@
 #include "main.h"
-
 /**
- * _strncat - entry level.
- * @dest: input from user
- * @src: input from user
- * @n: input from user
+ * _strncat- function is similar to the _strcat.
  *
- * Return: Always returning a character
+ * @dest: pointer to destination char
+ * @src: pointer to source char
+ * @n: it will use at most n bytes from src
+ * Return: char
  */
 
 char *_strncat(char *dest, char *src, int n)
 {
-	int counter;
-	int i;
+	unsigned int d = 0;
+	int s = 0;
 
-	for (counter = 0; dest[counter] != '\0'; counter++)
-
-	counter++;
-
-	for (i = 0; i < n && src[i]; i++)
-		dest[counter + i] = src[i];
-
+	while (dest[d] != '\0')
+	{
+		d++;
+	}
+	while (s < n && src[s] != '\0')
+	{
+		dest[d] = src[s];
+		d++;
+		s++;
+	}
 	return (dest);
 }
